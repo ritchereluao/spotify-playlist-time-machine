@@ -26,12 +26,6 @@ user_id = sp.current_user()["id"]
 
 song_uris = []
 year = date.split("-")[0]
-result = sp.search(q=f"track:Incomplete year:{year}", type="track")
-# pprint.pprint(result)
-# song_uri = result["tracks"]["items"][0]["uri"]
-# print(song_uri)
-
-
 for song in song_names:
     result = sp.search(q=f"track:{song} year:{year}", type="track")
     # print(result)
@@ -43,6 +37,4 @@ for song in song_names:
 
 
 playlist = sp.user_playlist_create(user=user_id, name=f"{date} Billboard 100", public=False)
-# print(playlist)
-
 sp.playlist_add_items(playlist_id=playlist["id"], items=song_uris)
