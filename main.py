@@ -26,6 +26,7 @@ song_uris = []
 year = date.split("-")[0]
 for song in song_names:
     result = sp.search(q=f"track:{song} year:{year}", type="track")
+    # result = sp.search(q=f"track:{song}", type="track")
     try:
         uri = result["tracks"]["items"][0]["uri"]
         song_uris.append(uri)
